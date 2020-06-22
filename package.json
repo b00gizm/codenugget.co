@@ -1,7 +1,7 @@
 {
   "name": "codenugget.co",
   "version": "1.0.0",
-  "description": "",
+  "description": "The code which powers the upcoming version of https://codenugget.co",
   "main": "webpack.config.js",
   "dependencies": {
     "react": "^16.13.1",
@@ -9,6 +9,7 @@
     "react-hot-loader": "^4.12.21"
   },
   "devDependencies": {
+    "@11ty/eleventy": "^0.11.0",
     "@babel/cli": "^7.10.3",
     "@babel/core": "^7.10.3",
     "@babel/preset-env": "^7.10.3",
@@ -17,12 +18,17 @@
     "@types/react-dom": "^16.9.8",
     "autoprefixer": "^9.8.2",
     "babel-loader": "^8.0.2",
+    "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^1.0.0",
+    "htm": "^3.0.4",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^7.1.1",
     "postcss-loader": "^3.0.0",
     "source-map-loader": "^1.0.0",
     "style-loader": "^0.23.0",
     "tailwindcss": "^1.4.6",
     "ts-loader": "^7.0.5",
+    "ts-node": "^8.10.2",
     "typescript": "^3.9.5",
     "typings-for-css-modules-loader": "^1.7.0",
     "webpack": "^4.43.0",
@@ -30,10 +36,13 @@
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "dev": "node_modules/.bin/webpack-dev-server --mode-development",
+    "styles:dev": "postcss src/page/_assets/styles/*.css -o _site/css/index.css --watch --verbose",
+    "scripts:dev": "webpack --watch",
+    "eleventy:dev": "eleventy --serve --watch",
+    "dev": "run-p *:dev --print-label",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Pascal Cremer <hello@codenugget.co>",
   "license": "ISC"
 }

@@ -16,7 +16,7 @@ npm install
 npm run dev
 ```
 
-Will start a development server at [http://localhost:3000](http://localhost:3000).
+This will start a development server at [http://localhost:8080](http://localhost:8080).
 
 ## Maintainer
 

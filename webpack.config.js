@@ -1,7 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 module.exports = {
+  entry: './src/app',
   mode: 'development',
   devtool: 'source-map',
   module: {
@@ -36,17 +39,12 @@ module.exports = {
     ],
   },
   output: {
-    path: path.resolve(__dirname, 'dist/'),
-    publicPath: '/dist/',
+    path: path.resolve(__dirname, '_site/js/'),
+    publicPath: '/_site/js/',
     filename: 'bundle.js',
-  },
-  devServer: {
-    contentBase: path.join(__dirname, 'public/'),
-    port: 3000,
-    publicPath: 'http://0.0.0.0:3000/dist/',
-    hotOnly: true,
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new CleanWebpackPlugin(),
   ],
 };

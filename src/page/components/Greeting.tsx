@@ -1,17 +1,14 @@
 import * as React from 'react';
-import './App.css';
-import { hot } from 'react-hot-loader';
 
-export interface AppProps { name: string };
+export interface GreetingProps { name: string };
 
-const App = (props: AppProps) => (
+export const Greeting = (props: GreetingProps) => (
   <div>
     <div className="container mx-auto px-4">
       <p className="font-sans text-5xl font-light text-gray-800">
         Hello, {props.name}.
       </p>
+      <div id="appRoot"></div>
     </div>
   </div>
 );
-
-export default hot(module)(App);
