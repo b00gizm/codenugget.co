@@ -5,8 +5,12 @@ import { hot } from 'react-hot-loader';
 export interface AppProps { name: string };
 
 const App = (props: AppProps) => (
-  <div className='App'>
-    <h1>Hello, {props.name}!</h1>
+  <div>
+    <div className="container mx-auto px-4">
+      <p className="font-sans text-5xl font-light text-gray-800">
+        Hello, {props.name}.
+      </p>
+    </div>
   </div>
 );
 
